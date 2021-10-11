@@ -11,8 +11,8 @@ import RxSwift
 final class LaunchViewModel {
     
     private let disposeBag = DisposeBag()
-    private let coordinator: LaunchCoordinator
     private let service: LaunchService
+    private let coordinator: LaunchCoordinator
     
     
     init(coordinator: LaunchCoordinator, service: LaunchService) {

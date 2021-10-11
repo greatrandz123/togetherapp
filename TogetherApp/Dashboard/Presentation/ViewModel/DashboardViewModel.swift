@@ -11,12 +11,12 @@ import RxSwift
 final class DashboardViewModel: TableViewSection {
     
     private let disposeBag = DisposeBag()
-    private let coordinator: DashboardCoordinator
     private let service: DashboardService
+    private let coordinator: DashboardCoordinator
+    private let tableViewManager = TableViewManager()
     
-    private var tableViewManager = TableViewManager()
-    var items = [TableViewItem]()
-    var height: CGFloat = 12
+    internal var height: CGFloat = 12
+    internal var items = [TableViewItem]()
     
     init(coordinator: DashboardCoordinator, service: DashboardService) {
         self.coordinator = coordinator
@@ -47,6 +47,11 @@ final class DashboardViewModel: TableViewSection {
                       DashboardItem(id: 5, title:  "Fr", description: "3535"),
                       DashboardItem(id: 6, title:  "Sa", description: "2341")]
         
+        self.loadTodaysItems()
+    }
+    
+    func loadTodaysItems() {
+        
         service.loadTodaysSteps()
             .subscribe(onNext: { (todaysSteps) in
                 
@@ -55,9 +60,6 @@ final class DashboardViewModel: TableViewSection {
             }, onError: { (_) in },
                onCompleted: { }
         ).disposed(by: disposeBag)
-    }
-    
-    func loadTodaysItems() {
         
     }
     
