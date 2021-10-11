@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import RxSwift
 
 final class DashboardViewModel: TableViewSection {
     
+    private let disposeBag = DisposeBag()
+    private let coordinator: DashboardCoordinator
+    private let service: DashboardService
     
-    let coordinator: DashboardCoordinator
     private var tableViewManager = TableViewManager()
     var items = [TableViewItem]()
     var height: CGFloat = 12
     
-    init(coordinator: DashboardCoordinator) {
+    init(coordinator: DashboardCoordinator, service: DashboardService) {
         self.coordinator = coordinator
+        self.service = service
         configureItems()
     }
     
@@ -42,6 +46,19 @@ final class DashboardViewModel: TableViewSection {
                       DashboardItem(id: 4, title:  "Th", description: "1435"),
                       DashboardItem(id: 5, title:  "Fr", description: "3535"),
                       DashboardItem(id: 6, title:  "Sa", description: "2341")]
+        
+        service.loadTodaysSteps()
+            .subscribe(onNext: { (todaysSteps) in
+                
+                print("todaysSteps: \(todaysSteps)")
+                
+            }, onError: { (_) in },
+               onCompleted: { }
+        ).disposed(by: disposeBag)
+    }
+    
+    func loadTodaysItems() {
+        
     }
     
     func headerView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

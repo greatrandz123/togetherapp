@@ -21,7 +21,8 @@ struct DashboardCoordinator: Coordinator {
         
         navigationController.navigationBar.isHidden = false
         let coordinator = DashboardCoordinator(navigationController: navigationController)
-        let viewModel = DashboardViewModel(coordinator: coordinator)
+        let service = DashboardService()
+        let viewModel = DashboardViewModel(coordinator: coordinator, service: service)
         let viewController = DashboardViewController(viewModel: viewModel)
         
         DispatchQueue.main.async {
