@@ -35,20 +35,13 @@ final class DashboardViewModel: TableViewSection {
     }
     
     func configureItems() {
-        var item = DashboardItem(id: 1, title:  "Su", description: "413")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "Mo", description: "0")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "Tu", description: "756")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "We", description: "2345")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "Th", description: "1435")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "Fr", description: "3535")
-        items.append(item)
-        item = DashboardItem(id: 1, title:  "Sa", description: "2341")
-        items.append(item)
+        self.items = [DashboardItem(id: 0, title:  "Su", description: "413"),
+                      DashboardItem(id: 1, title:  "Mo", description: "0"),
+                      DashboardItem(id: 2, title:  "Tu", description: "756"),
+                      DashboardItem(id: 3, title:  "We", description: "2345"),
+                      DashboardItem(id: 4, title:  "Th", description: "1435"),
+                      DashboardItem(id: 5, title:  "Fr", description: "3535"),
+                      DashboardItem(id: 6, title:  "Sa", description: "2341")]
     }
     
     func headerView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
