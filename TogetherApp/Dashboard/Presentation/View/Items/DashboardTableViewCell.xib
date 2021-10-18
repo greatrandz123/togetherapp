@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="808" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y34-W8-tpD">
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y34-W8-tpD">
                         <rect key="frame" x="433" y="0.0" width="673" height="91"/>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6x-uM-bwV">
@@ -50,6 +50,8 @@
                     <constraint firstAttribute="bottom" secondItem="g6x-uM-bwV" secondAttribute="bottom" id="3i6-yD-mfW"/>
                     <constraint firstItem="y34-W8-tpD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-11" id="61c-D1-sOK"/>
                     <constraint firstItem="g6x-uM-bwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WI4-Uv-B9X"/>
+                    <constraint firstItem="y34-W8-tpD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="433" id="WMA-az-Qsq"/>
+                    <constraint firstAttribute="trailing" secondItem="y34-W8-tpD" secondAttribute="trailing" constant="-298" id="d63-I0-1AM"/>
                     <constraint firstItem="y34-W8-tpD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="p6G-Hg-5uH"/>
                     <constraint firstItem="g6x-uM-bwV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wvX-zl-7XI"/>
                     <constraint firstAttribute="trailing" secondItem="g6x-uM-bwV" secondAttribute="trailing" id="zUp-kz-Eii"/>

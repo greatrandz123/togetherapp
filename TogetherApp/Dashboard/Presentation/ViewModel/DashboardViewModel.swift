@@ -21,7 +21,7 @@ final class DashboardViewModel: TableViewSection {
     init(coordinator: DashboardCoordinator, service: DashboardService) {
         self.coordinator = coordinator
         self.service = service
-        configureItems()
+        loadCurrentWeekSteps()
     }
     
     var sections: [TableViewSection] {
@@ -35,27 +35,16 @@ final class DashboardViewModel: TableViewSection {
     }
     
     func registerCells(for tableView: UITableView) {
+        tableView.backgroundColor = .white
         tableView.register(DashboardTableViewCell.nib, forCellReuseIdentifier: DashboardTableViewCell.identifier)
     }
     
-    func configureItems() {
-        self.items = [DashboardItem(id: 0, title:  "Su", description: "413"),
-                      DashboardItem(id: 1, title:  "Mo", description: "0"),
-                      DashboardItem(id: 2, title:  "Tu", description: "756"),
-                      DashboardItem(id: 3, title:  "We", description: "2345"),
-                      DashboardItem(id: 4, title:  "Th", description: "1435"),
-                      DashboardItem(id: 5, title:  "Fr", description: "3535"),
-                      DashboardItem(id: 6, title:  "Sa", description: "2341")]
+    func loadCurrentWeekSteps() {
         
-        self.loadTodaysItems()
-    }
-    
-    func loadTodaysItems() {
-        
-        service.loadTodaysSteps()
-            .subscribe(onNext: { (todaysSteps) in
+        service.loadCurrentWeekSteps()
+            .subscribe(onNext: { (steps: [DayStep]) in
                 
-                print("todaysSteps: \(todaysSteps)")
+                self.items = steps.map({ DashboardItem(id: $0.id, title: $0.day, description: "\($0.steps)")})
                 
             }, onError: { (_) in },
                onCompleted: { }

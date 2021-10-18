@@ -33,6 +33,8 @@ final class DashboardItem: TableViewItem {
         
         cell.titleLabel.text = title
         cell.descriptionLabel.text = description
+        cell.titleLabel.textColor = .black
+        cell.descriptionLabel.textColor = .black
 
         //dee2e6
         return cell
