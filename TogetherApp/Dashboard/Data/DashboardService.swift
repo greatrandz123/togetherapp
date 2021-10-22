@@ -21,7 +21,11 @@ struct DayStep {
     }
 }
 
-final class DashboardService {
+protocol DashboardServiceProtocol {
+    func loadCurrentWeekSteps() -> Observable<[DayStep]>
+}
+
+final class DashboardService: DashboardServiceProtocol {
     typealias T = LaunchCoordinator.scene
     private let healthStore = HKHealthStore()
     
@@ -40,7 +44,7 @@ final class DashboardService {
         return Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: date)!
     }
     
-    private func getCurrentWeekSteps(observer: AnyObserver<[DayStep]>) {
+    internal func getCurrentWeekSteps(observer: AnyObserver<[DayStep]>) {
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
         
         let now = convertDateToLocalTime(Date())

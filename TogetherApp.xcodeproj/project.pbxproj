@@ -159,6 +159,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A93837FC272260C8008A22AD /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A99F88BF271040CA00760BCF /* TogetherAppTests.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		A99F8899271040C600760BCF = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +208,7 @@
 		A99F88BE271040CA00760BCF /* TogetherAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				A99F88BF271040CA00760BCF /* TogetherAppTests.swift */,
+				A93837FC272260C8008A22AD /* Dashboard */,
 				A99F88C1271040CA00760BCF /* Info.plist */,
 			);
 			path = TogetherAppTests;
