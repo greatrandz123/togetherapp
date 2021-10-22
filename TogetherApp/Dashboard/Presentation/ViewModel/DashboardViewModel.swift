@@ -45,6 +45,7 @@ final class DashboardViewModel: TableViewSection {
             .subscribe(onNext: { (steps: [DayStep]) in
                 
                 self.items = steps.map({ DashboardItem(id: $0.id, title: $0.day, description: "\($0.steps)")})
+                self.tableViewManager.reloadData()
                 
             }, onError: { (_) in },
                onCompleted: { }
